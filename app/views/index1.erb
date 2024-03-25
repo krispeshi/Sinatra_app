@@ -1,0 +1,39 @@
+<form action="/" method="POST">
+
+  <p><label for="username">Вашето име:</label></p>
+  <p><label>
+    <input type="text" name="username" value="<%= @username %>">
+  </label></p>
+
+  <p><label for="phone">Телефон:</label></p>
+  <p><label>
+    <input type="text" name="phone" value="<%= @phone %>">
+  </label></p>
+
+  <p><label for="email">E-mail:</label></p>
+  <p><label>
+    <input type="text" name="email" value="<%= @email %>">
+  </label></p>
+
+  <p><label for="option">Изберете опция:</label></p>
+
+  <p>
+    <label>
+      <select name="option">
+        <option value="" selected>Изберете опция...</option>
+        <option value="Опция 1">Портални кранове</option>
+        <option value="Опция 2">Тилови машини</option>
+        <option value="Опция 3">Трафопостове</option>
+        <option value="Опция 4">Сграден фонд</option>
+      </select>
+    </label>
+  </p>
+
+  <p><label for="comment">Комментарий към заявката:</label></p>
+  <p><label>
+    <textarea rows="10" cols="45" name="comment" value="<%= @comment %>"></textarea>
+  </label></p>
+
+  <p><input type="submit" value="Изпрати заявката"></p>
+
+</form>

@@ -1,0 +1,60 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+require 'sinatra'
+#noinspection RubyResolve
+require 'sqlite3'
+
+gem 'bootstrap', '~> 5.3.2'
+#gem 'rubocop', group: 'development', require: false
+gem 'sinatra'
+
+
+
+# Method connect with database
+#def get_db
+#SQLite3::Database.new 'base.db'
+#end
+
+# Configure application
+configure do
+  db = get_db
+  db.execute 'CREATE TABLE IF NOT EXISTS "Messages"
+    (
+      "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+      "username" TEXT,
+      "phone" TEXT,
+      "email" TEXT,
+      "option" TEXT,
+      "comment" TEXT
+    )'
+  db.close
+end
+
+# Method save form data to database
+def save_form_data_to_database
+  db = get_db
+  db.execute 'INSERT INTO Messages (username, phone, email, option, comment)
+  VALUES (?, ?, ?, ?, ?)', [@username, @phone, @email, @option, @comment]
+  db.close
+end
+
+# Index page with form
+get '/' do
+  @title = 'Форма за заявки на Sinatra (Ruby)'
+  erb :index
+end
+
+post '/' do
+  @username = params[:username]
+  @phone = params[:phone]
+  @email = params[:email]
+  @option = params[:option]
+  @comment = params[:comment]
+
+  save_form_data_to_database
+
+  @title = 'Благодаря, вашето сообщение е изпратено'
+  erb :sent
+end

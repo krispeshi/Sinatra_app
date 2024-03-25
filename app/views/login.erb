@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <style>
+      .container {
+          display: grid;
+          width: 400px !important;
+          height: 500px;
+          background: #ecf0f1;
+          margin: 50px auto 0;
+          border-radius: 10px;
+      }
+
+      body {
+          margin: 0;
+          padding: 0;
+          background-color: #c7e8e2 !important;
+      }
+
+      #form {
+          color: black;
+          text-align: center;
+          padding-top: 20px;
+          font-size: 30px;
+      }
+
+      .name {
+          display: flex;
+          padding-left: 48px;
+          color: black;
+          padding-top: 20px;
+
+
+      }
+
+      .pass {
+          display: flex;
+          padding-left: 48px;
+          color: black;
+          padding-top: 20px;
+
+      }
+
+
+      .login {
+          text-align: center;
+          margin-top: 40px;
+
+      }
+
+      input {
+          width: 280px;
+          height: 50px;
+          border: none;
+          padding: 10px;
+          outline: none;
+          text-decoration-color: linen;
+          border-bottom: 2px solid blue;
+      }
+
+      .submit {
+          display: flex;
+          padding: 20px;
+          margin-left: 25px;
+      }
+
+  </style>
+  <title>Login Form - Javascript</title>
+
+<body>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script>
+    //write JavaScript code here..
+    function validate() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === 'stef' && password === 'stef0123') {
+            alert('login successful!');
+            window.location = '/index1';
+            return false;
+        }
+    }
+</script>
+<div class="container">
+  <form>
+    <h1 id="form">Login!</h1>
+    <div class="login">
+      <label class="name">username:</label>
+      <label for="username"></label><input id="username" class="username" type="text" placeholder="name...">
+
+      <label class="pass">password:</label>
+      <label for="password"></label><input id="password" class="password" type="password" placeholder="password...">
+
+    </div>
+
+    <div class="submit">
+      <button id="submit" class="btn btn-primary" onclick="return validate()">Submit</button>
+    </div>
+
+
+  </form>
+</div>
+</body>
+</html>
+
