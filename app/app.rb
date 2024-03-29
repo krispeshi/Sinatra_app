@@ -6,20 +6,7 @@ require 'sqlite3'
 
 require 'sinatra/base'
 #noinspection RubyResolve
-require 'sinatra/env_to_config'
 
-class MyApp < Sinatra::Base
-  #noinspection RubyResolve
-  register Sinatra::EnvToConfig
-
-  #noinspection RubyUnusedLocalVariable
-  def self.env_to_config(i, i1)
-    # code here
-  end
-
-  env_to_config :key1, :key2
-
-end
 
 
 get '/' do
