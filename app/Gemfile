@@ -9,7 +9,7 @@ require 'sqlite3'
 gem 'bootstrap', '~> 5.3.2'
 #gem 'rubocop', group: 'development', require: false
 gem 'sinatra'
-gem 'sinatra-env_to_config'
+
 
 
 # Method connect with database
